@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState } from "react";
-import "./Post.scss";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Post.scss";
 type Props = {
   postVal: any;
 };

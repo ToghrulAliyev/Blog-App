@@ -1,4 +1,4 @@
-import { FC, createContext, ReactNode, useState,useEffect } from "react";
+import { FC, ReactNode, createContext, useState } from "react";
 
 // Create the context with an initial/default value.
 export const UserContext = createContext<any | undefined>(undefined);

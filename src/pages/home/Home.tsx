@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Post from "../../components/Post/Post";
-import Navbar from "../../components/Navbar/Navbar";
 
-type Props = {};
-
-const Home = (props: Props) => {
+ 
+const Home = () => {
   const [posts, setPosts] = useState<any>();
 
   async function fetchPost(){

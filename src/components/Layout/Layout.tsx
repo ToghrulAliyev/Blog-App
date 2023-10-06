@@ -1,15 +1,14 @@
 import React, { FC, useContext, useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
-import Home from "../../pages/home/Home";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../modules/context/UserContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 interface Props {
   children: React.ReactNode;
 }
 
 const Layout: FC<Props> = (props: Props) => {
-  const { userInfo,redirect } = useContext(UserContext);
+  const { userInfo } = useContext(UserContext);
 
 
   console.log("vvvvvvv",userInfo)

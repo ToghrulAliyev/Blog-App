@@ -1,31 +1,30 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../../modules/context/UserContext";
 
-type Props = {};
-
-const Register = (props: Props) => {
+const Register = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-  const [redirect, setRedirect] = useState<boolean>(false);
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { userInfo, redirect } = useContext(UserContext);
 
- async function registration(e:any){
-     e.preventDefault()
-    const response = await fetch('https://blogpage-c97k.onrender.com/register',{
-        method: 'POST',
-        body: JSON.stringify({username,password}),
-        headers: {'Content-Type':'application/json'},
-     });
+  async function registration(e: any) {
+    e.preventDefault();
+    const response = await fetch(
+      "https://blogpage-c97k.onrender.com/register",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
-     if (response.status === 200){
-        alert("registiration successful")
-        navigate('/')
-     }
-     else{
-        alert("registration failed")
-     }
+    if (response.status === 200) {
+      alert("registiration successful");
+      navigate("/");
+    } else {
+      alert("registration failed");
+    }
   }
 
   if (redirect || userInfo?.username) {

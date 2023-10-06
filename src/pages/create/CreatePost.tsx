@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import "./CreatePage.scss";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import "./CreatePage.scss";
 
-type Props = {};
+ 
 
 const modules = {
   toolbar: [
@@ -36,7 +36,7 @@ const formats = [
   "image",
 ];
 
-const CreatePost = (props: Props) => {
+const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
@@ -48,8 +48,8 @@ const CreatePost = (props: Props) => {
     formState: { errors },
   } = useForm();
 
-  async function newPost(e: any) {
-    // console.log("aa");
+  async function newPost() {
+ 
     const postData = new FormData();
     postData.set("title", title);
     postData.set("summary", summary);

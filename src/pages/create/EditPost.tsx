@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./CreatePage.scss";
+import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import "./CreatePage.scss";
 
-type Props = {};
+ 
 
 const modules = {
   toolbar: [
@@ -35,16 +35,14 @@ const formats = [
   "image",
 ];
 
-const EditPost = (props: Props) => {
+const EditPost = () => {
   const { id } = useParams<any>();
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
-  //   const [cover, setCover] = useState("");
-  const [file, setFile] = useState("");
+   const [file, setFile] = useState("");
   const [redirect, setRedirect] = useState<boolean>();
-  const navigate = useNavigate();
-
+ 
   useEffect(() => {
     fetch("https://blogpage-c97k.onrender.com/post/" + id)
       .then((response) => response.json())
@@ -55,9 +53,7 @@ const EditPost = (props: Props) => {
       });
   }, []);
 
-  async function updatePost(e: any) {
- 
-
+  async function updatePost() {
     const postData = new FormData();
     postData.set("title", title);
     postData.set("summary", summary);

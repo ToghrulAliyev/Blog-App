@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../../modules/context/UserContext";
-type Props = {};
 
-const Login = (props: Props) => {
+
+const Login = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   // const [redirect, setRedirect] = useState<boolean>(false);

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import "./Modals.scss";
 import { AnimatePresence, motion } from "framer-motion";
+import { FC } from "react";
+import "./Modals.scss";
 type Props = {
   openModal: boolean;
   setOpenModal: (value: boolean) => void;

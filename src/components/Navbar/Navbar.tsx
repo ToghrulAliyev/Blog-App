@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import "./Navbar.scss";
-import { useNavigate, Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../modules/context/UserContext";
-type Props = {};
+import "./Navbar.scss";
+ 
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const navigate = useNavigate();
 
   // const [username, setUsername] = useState<any>();

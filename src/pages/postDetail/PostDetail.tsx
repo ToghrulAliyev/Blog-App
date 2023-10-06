@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { UserContext } from "../../modules/context/UserContext";
 import DeleteModal from "../../components/modal/DeleteModal";
+import { UserContext } from "../../modules/context/UserContext";
 
-type Props = {};
 
-const PostDetail = (props: Props) => {
+
+const PostDetail = () => {
   const [postInfo, setPostInfo] = useState<any>("");
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
