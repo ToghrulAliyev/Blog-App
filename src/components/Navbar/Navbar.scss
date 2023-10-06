@@ -1,0 +1,18 @@
+.navbar{
+    background-color: #242424;
+    width: 100%;
+    // margin-bottom: 4rem;
+}
+.navbar_container{
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.87);
+    justify-content: space-between;
+}
+.auth_container{
+    a:nth-child(1){
+        margin: 0 1rem;
+    }
+}

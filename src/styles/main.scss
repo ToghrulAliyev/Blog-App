@@ -1,0 +1,36 @@
+.conatiner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+.form {
+  display: flex;
+  justify-content: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 50%;
+  }
+  h1 {
+    text-align: center;
+  }
+  input {
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    padding: 0.2rem 2rem;
+    font-size: 1.1rem;
+  }
+  button {
+  }
+}
+@media screen and (max-width: 1024px) {
+  .form {
+    div {
+      width: 100%;
+    }
+  }
+}

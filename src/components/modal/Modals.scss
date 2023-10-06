@@ -1,0 +1,40 @@
+.delete_modal-background {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(#000, 0.2);
+  z-index: 100;
+
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete_modal-container {
+  width: 200px;
+  height: 100px;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+
+  h5{
+    margin: 0 0 1rem 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  div{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    button {
+      background-color: #646cff;
+      padding: 0.4rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }  
+  }
+}
