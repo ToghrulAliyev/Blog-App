@@ -7,8 +7,8 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // const [username, setUsername] = useState<any>();
-  const { userInfo, setUserInfo, setRedirect,password } = useContext(UserContext);
-  const username = userInfo?.username?.length > 0;
+  const { userInfo, username, setUserInfo, setRedirect,password, } = useContext(UserContext);
+  const user = userInfo?.username?.length > 0;
 
   console.log("username", username);
   console.log("sdfsdfsdfsdf", userInfo);
@@ -32,7 +32,6 @@ const Navbar = () => {
     try {
       let response = await fetch("https://blogpage-c97k.onrender.com/logout", {
         method: "POST",
-        // mode: "no-cors",
         body: JSON.stringify({ username, password }),
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -53,7 +52,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar_container">
-        {username ? (
+        {user ? (
           <Link to={"/"} className="logo">
             MyBlog
           </Link>
@@ -62,7 +61,7 @@ const Navbar = () => {
         )}
 
         <nav className="auth_container">
-          {username ? (
+          {user ? (
             <>
               <Link to={"/create"}> Create New Post</Link>
               <a onClick={logout}>Log out</a>
