@@ -2,43 +2,49 @@ import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../modules/context/UserContext";
 import "./Navbar.scss";
- 
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   // const [username, setUsername] = useState<any>();
-  const { userInfo, setUserInfo,setRedirect } = useContext(UserContext);
+  const { userInfo, setUserInfo, setRedirect } = useContext(UserContext);
   const username = userInfo?.username?.length > 0;
 
   console.log("username", username);
-  console.log("sdfsdfsdfsdf",userInfo)
-
+  console.log("sdfsdfsdfsdf", userInfo);
 
   useEffect(() => {
-   try {
-    fetch("https://blogpage-c97k.onrender.com/profile", {
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((user) => {
-        console.log("resuser", user)
-        setUserInfo(user);
-      });
-   } catch (error) {
-    console.log("errrrrr",error)
-   }
+    try {
+      fetch("https://blogpage-c97k.onrender.com/profile", {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((user) => {
+          console.log("resuser", user);
+          setUserInfo(user);
+        });
+    } catch (error) {
+      console.log("errrrrr", error);
+    }
   }, []);
 
-  function logout() {
-    fetch("https://blogpage-c97k.onrender.com/logout", {
-      credentials: "include",
-      method: "POST",
-    });
-    setUserInfo("");
-    setRedirect(false)
-    navigate("/login");
-   
+  async function logout() {
+    try {
+      let response = await fetch("https://blogpage-c97k.onrender.com/logout", {
+        credentials: "include",
+        method: "POST",
+      });
+      if (response) {
+        console.log('respo',response)
+        setUserInfo("");
+        setRedirect(false);
+        navigate("/login");
+      } else {
+        alert("something went wrong");
+      }
+    } catch (error) {
+      alert("test");
+    }
   }
 
   return (
