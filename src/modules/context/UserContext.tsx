@@ -4,18 +4,31 @@ import { FC, ReactNode, createContext, useState } from "react";
 export const UserContext = createContext<any | undefined>(undefined);
 
 // Define your provider component.
-export const UserContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  
+export const UserContextProvider: FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [userInfo, setUserInfo] = useState({});
-  const [redirect,setRedirect] = useState()
-
+  const [redirect, setRedirect] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
   // You can update userInfo with actual user data when needed.
   // For example:
-  
+
   // console.log("user1",userInfo)
 
   return (
-    <UserContext.Provider value={{userInfo,setUserInfo,redirect,setRedirect}}>
+    <UserContext.Provider
+      value={{
+        userInfo,
+        setUserInfo,
+        redirect,
+        setRedirect,
+        username,
+        setUsername,
+        password,
+        setPassword,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

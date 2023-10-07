@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // const [username, setUsername] = useState<any>();
-  const { userInfo, setUserInfo, setRedirect } = useContext(UserContext);
+  const { userInfo, setUserInfo, setRedirect,password } = useContext(UserContext);
   const username = userInfo?.username?.length > 0;
 
   console.log("username", username);
@@ -31,8 +31,11 @@ const Navbar = () => {
   async function logout() {
     try {
       let response = await fetch("https://blogpage-c97k.onrender.com/logout", {
-        credentials: "include",
         method: "POST",
+        // mode: "no-cors",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
       });
       if (response) {
         console.log('respo',response)
