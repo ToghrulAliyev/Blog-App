@@ -11,10 +11,7 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
   const [redirect, setRedirect] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  // You can update userInfo with actual user data when needed.
-  // For example:
-
-  // console.log("user1",userInfo)
+ 
 
   return (
     <UserContext.Provider

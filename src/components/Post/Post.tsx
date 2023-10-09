@@ -8,7 +8,7 @@ type Props = {
 const Post: FC<Props> = ({ postVal }) => {
   const navigate = useNavigate();
 
-  // console.log("postValpostVal", postVal);
+ 
  
   const originalDate = new Date(postVal?.createdAt);
 
@@ -27,7 +27,7 @@ const Post: FC<Props> = ({ postVal }) => {
           />
         </div>
         <div className="post_details">
-          <h3>{postVal?.title}</h3>
+          <h4>{postVal?.title}</h4>
           <span>{postVal?.author?.username} | {date} | {time}</span>
           <p>{postVal?.summary}</p>
         </div>

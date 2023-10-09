@@ -9,9 +9,7 @@ const Navbar = () => {
   // const [username, setUsername] = useState<any>();
   const { userInfo, username, setUserInfo, setRedirect,password } = useContext(UserContext);
   const user = userInfo?.username?.length > 0;
-
-  console.log("username", username);
-  console.log("sdfsdfsdfsdf", userInfo);
+ 
 
   useEffect(() => {
     try {
@@ -20,11 +18,11 @@ const Navbar = () => {
       })
         .then((res) => res.json())
         .then((user) => {
-          console.log("resuser", user);
+     
           setUserInfo(user);
         });
     } catch (error) {
-      console.log("errrrrr", error);
+    
     }
   }, []);
 
@@ -37,7 +35,6 @@ const Navbar = () => {
         credentials: "include",
       });
       if (response) {
-        console.log('respo',response)
         setUserInfo("");
         setRedirect(false);
         navigate("/login");

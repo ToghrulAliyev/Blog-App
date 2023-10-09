@@ -63,7 +63,7 @@ const CreatePost = () => {
     if (resp.ok) {
       navigate("/");
     } else {
-      // console.log("aaa");
+      alert("something went wrong")
     }
   }
   return (
