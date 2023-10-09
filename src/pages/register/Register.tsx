@@ -21,7 +21,7 @@ const Register = () => {
 
     if (response.status === 200) {
       alert("registiration successful");
-      navigate("/");
+      navigate("/login");
     } else {
       alert("registration failed");
     }
