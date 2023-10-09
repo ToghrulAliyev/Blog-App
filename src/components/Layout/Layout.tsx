@@ -1,8 +1,7 @@
-import React, { FC, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { FC, useContext } from "react";
+import { SquareLoader } from "react-spinners";
 import { UserContext } from "../../modules/context/UserContext";
 import Navbar from "../Navbar/Navbar";
-import { SquareLoader } from "react-spinners";
 
 interface Props {
   children: React.ReactNode;

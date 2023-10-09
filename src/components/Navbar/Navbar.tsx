@@ -1,11 +1,9 @@
-import { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../modules/context/UserContext";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
   const { userInfo, logout } =useContext(UserContext);
   const user = userInfo?.username?.length > 0;
 
