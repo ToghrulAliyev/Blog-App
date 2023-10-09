@@ -9,15 +9,9 @@ interface Props {
 
 const Layout: FC<Props> = (props: Props) => {
   const { userInfo } = useContext(UserContext);
-
-
-  console.log("vvvvvvv",userInfo)
   const navigate = useNavigate();
- 
-  // console.log("userInfo",userInfo)
-  // console.log("window.location.pathname",window.location.pathname)
    useEffect(()=>{
-    if(!userInfo.length){
+    if(!(userInfo?.username?.length > 0 )){
       navigate('/login')
     }
    },[])

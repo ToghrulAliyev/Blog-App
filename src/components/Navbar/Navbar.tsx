@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // const [username, setUsername] = useState<any>();
-  const { userInfo, username, setUserInfo, setRedirect,password, } = useContext(UserContext);
+  const { userInfo, username, setUserInfo, setRedirect,password } = useContext(UserContext);
   const user = userInfo?.username?.length > 0;
 
   console.log("username", username);

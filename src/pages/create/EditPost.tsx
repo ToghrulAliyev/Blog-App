@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./CreatePage.scss";
-
- 
 
 const modules = {
   toolbar: [
@@ -40,9 +38,9 @@ const EditPost = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
-   const [file, setFile] = useState("");
-  const [redirect, setRedirect] = useState<boolean>();
- 
+  const [file, setFile] = useState("");
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch("https://blogpage-c97k.onrender.com/post/" + id)
       .then((response) => response.json())
@@ -68,16 +66,12 @@ const EditPost = () => {
       credentials: "include",
     });
     if (resp.ok) {
-      setRedirect(true);
+      navigate(`/detail/${id}`);
     }
   }
 
-  if (redirect) {
-    return <Navigate to={"/detail/" + id} />;
-  }
-
   return (
-    <form className="create_container" onSubmit={updatePost}>
+    <div className="create_container">
       <div className="form_container">
         <div className="create_form">
           <h1>Create New Post</h1>
@@ -102,9 +96,9 @@ const EditPost = () => {
             formats={formats}
           />
         </div>
-        <button>Update Post</button>
+        <button onClick={()=>updatePost()}>Update Post</button>
       </div>
-    </form>
+    </div>
   );
 };
 
