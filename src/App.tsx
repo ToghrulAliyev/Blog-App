@@ -22,7 +22,6 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/create" element={<CreatePost />} />
             <Route path="/edit/:id" element={<EditPost />} />
-
           </Routes>
         </Layout>
       </UserContextProvider>

@@ -6,45 +6,10 @@ import "./Navbar.scss";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  // const [username, setUsername] = useState<any>();
-  const { userInfo, username, setUserInfo, setRedirect,password } = useContext(UserContext);
+  const { userInfo, logout } =useContext(UserContext);
   const user = userInfo?.username?.length > 0;
- 
 
-  useEffect(() => {
-    try {
-      fetch("https://blogpage-c97k.onrender.com/profile", {
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((user) => {
-     
-          setUserInfo(user);
-        });
-    } catch (error) {
-    
-    }
-  }, []);
 
-  async function logout() {
-    try {
-      let response = await fetch("https://blogpage-c97k.onrender.com/logout", {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      if (response) {
-        setUserInfo("");
-        setRedirect(false);
-        navigate("/login");
-      } else {
-        alert("something went wrong");
-      }
-    } catch (error) {
-      alert("test");
-    }
-  }
 
   return (
     <header className="navbar">

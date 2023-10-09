@@ -25,6 +25,7 @@
 }
 .post_details {
   padding: 1rem;
+  width: auto !important;
   h4 {
     margin: 0;
     overflow: hidden;
@@ -75,6 +76,11 @@
 }
 
 @media screen and (max-width: 711px) {
+    .post {
+        div{
+            width: 100%;
+        }
+    }
   .detail_container {
     h1 {
       font-size: 1.5rem;
